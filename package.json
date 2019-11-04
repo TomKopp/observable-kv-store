@@ -1,0 +1,52 @@
+{
+  "name": "observable-kv-store",
+  "version": "0.1.0",
+  "description": "Provides a base class tat stores state data and notifies subscribers",
+  "author": "Tom Kopp",
+  "license": "MIT",
+  "keywords": [
+    "app",
+    "web",
+    "component",
+    "ui",
+    "library",
+    "custom",
+    "elements"
+  ],
+  "engines": {
+    "node": ">=12.6.0"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.iife.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "build:dev": "cross-env NODE_ENV=development rollup -c",
+    "watch": "cross-env NODE_ENV=production rollup -c -w"
+  },
+  "browserslist": "> 0.5% and last 2 chrome version, last 2 firefox version and not IE <= 11",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.5.1",
+    "eslint-plugin-jsdoc": "^15.12.0",
+    "rollup": "^1.25.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-cpy": "^2.0.1",
+    "rollup-plugin-delete": "^1.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-progress": "^1.1.1",
+    "rollup-plugin-terser": "^5.1.2",
+    "serve": "^11.2.0"
+  }
+}
