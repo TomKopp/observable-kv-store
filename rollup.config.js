@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel';
 import cleanup from 'rollup-plugin-cleanup';
 import commonjs from 'rollup-plugin-commonjs';
-// import cpy from 'rollup-plugin-cpy';
+import cpy from 'rollup-plugin-cpy';
 import del from 'rollup-plugin-delete';
 import json from 'rollup-plugin-json';
 import pkg from './package.json';
@@ -24,8 +24,7 @@ export default {
 
 		// A string or an array of patterns of files and folders to be deleted. Default is []
 		// Match anything in 'dist' directory'
-		// , del({ targets: ['dist/*', 'public/*.js'] })
-		, del({ targets: ['dist/*'] })
+		, del({ targets: ['dist/*', 'public/*.js'] })
 
 		// Allows node_modules resolution
 		, resolve()
@@ -46,7 +45,7 @@ export default {
 		, (() => { if (process.env.NODE_ENV === 'production') return terser(); })()
 
 		// Rollup plugin to easily copy files and folders
-		// , cpy({ files: ['dist/index.esm.js', 'dist/index.esm.js.map'], dest: 'public/' })
+		, cpy({ files: ['dist/index.esm.js', 'dist/index.esm.js.map'], dest: 'public/' })
 	]
 
 	, output: [
