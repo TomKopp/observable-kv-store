@@ -63,7 +63,7 @@ const kvStore = Object.seal(class kvStore {
 					resolve();
 				}
 				else {
-					reject(new Error('Key was not found'));
+					reject(new Error('Key was not found.'));
 				}
 			}
 			else {
@@ -89,7 +89,7 @@ const kvStore = Object.seal(class kvStore {
 				resolve();
 			}
 			else {
-				reject(new Error('Key was not found'));
+				reject(new Error('Key was not found.'));
 			}
 		}).then(this.notify(entity));
 	}
@@ -97,16 +97,38 @@ const kvStore = Object.seal(class kvStore {
 	/**
 	 * Subscibe to be notified if the store was mutated.
 	 *
-	 * @param {Function} callback will be invoked upon mution
-	 * @returns {Error|null} error if the provied callback is not a function
+	 * @param {Function} callback will be invoked upon mutation
+	 * @returns {Promise} resolves undefined if successful, rejects if error
 	 * @memberof kvStore
 	 */
 	observe(callback) {
-		if (typeof callback !== 'function') { return new Error('Callback should be of type \'function\''); }
+		return new Promise((resolve, reject) => {
+			if (typeof callback === 'function') {
+				this[observers].add(callback);
+				resolve();
+			}
+			else {
+				reject(new Error('Callback should be of type \'function\'.'));
+			}
+		});
+	}
 
-		this[observers].add(callback);
-
-		return null;
+	/**
+	 * Subscibe to be notified if the store was mutated.
+	 *
+	 * @param {Function} callback will be invoked upon mutation
+	 * @returns {Promise} resolves undefined if successful, rejects if error
+	 * @memberof kvStore
+	 */
+	disconnect(callback) {
+		return new Promise((resolve, reject) => {
+			if (this[observers].delete(callback)) {
+				resolve();
+			}
+			else {
+				reject(new Error('Callback was not registered.'));
+			}
+		});
 	}
 
 	/**
