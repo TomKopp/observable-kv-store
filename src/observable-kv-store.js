@@ -1,21 +1,8 @@
+import { Entity } from './entity';
 // State store for e.g. class properties
 
 const store = Symbol('store');
 const observers = Symbol('observers');
-
-/**
- * Internal mutation tracking class
- *
- * @class Entity
- */
-class Entity {
-	constructor(key, value, newValue) {
-		this.key = key;
-		this.value = value;
-		this.newValue = newValue;
-	}
-}
-
 
 /**
  * kvStore class
@@ -37,7 +24,7 @@ const kvStore = Object.seal(class kvStore {
 	/**
 	 * Get the stored value.
 	 *
-	 * @param {(string|number|symbol)} key identifier like a property key
+	 * @param {(string|number|symbol)} key identifier, like a property key
 	 * @returns {Promise} resolves with value for the associated key, or undefined
 	 * @memberof kvStore
 	 */
@@ -49,16 +36,16 @@ const kvStore = Object.seal(class kvStore {
 	 * Sets a value with a key in the store.
 	 * If value is undefined it is deleted.
 	 *
-	 * @param {(string|number|symbol)} key identifier like a property key
-	 * @param {*} newValue new value associated with the key
+	 * @param {(string|number|symbol)} key identifier, like a property key
+	 * @param {*} value new value associated with the key
 	 * @returns {Promise} resolves undefined if successful, rejects if error
 	 * @memberof kvStore
 	 */
-	set(key, newValue) {
-		const entity = new Entity(key, this[store].get(key), newValue);
+	set(key, value) {
+		const entity = new Entity(key, this[store].get(key), value);
 
 		return new Promise((resolve, reject) => {
-			if (typeof entity.newValue === 'undefined') {
+			if (typeof entity.value === 'undefined') {
 				if (this[store].delete(entity.key)) {
 					resolve();
 				}
@@ -67,7 +54,7 @@ const kvStore = Object.seal(class kvStore {
 				}
 			}
 			else {
-				this[store].set(entity.key, entity.newValue);
+				this[store].set(entity.key, entity.value);
 				resolve();
 			}
 
@@ -77,7 +64,7 @@ const kvStore = Object.seal(class kvStore {
 	/**
 	 * Deletes a value with a key in the store.
 	 *
-	 * @param {(string|number|symbol)} key identifier like a property key
+	 * @param {(string|number|symbol)} key identifier, like a property key
 	 * @returns {Promise} resolves undefined if successful, rejects if error
 	 * @memberof kvStore
 	 */
