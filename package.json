@@ -1,17 +1,17 @@
 {
-  "name": "observable-kv-store",
-  "version": "0.1.0",
-  "description": "Provides a base class tat stores state data and notifies subscribers",
-  "author": "Tom Kopp",
+  "name": "@witzbould/observable-kv-store",
+  "version": "1.0.0",
+  "description": "Provides a base class that stores state data and notifies subscribers",
+  "author": "witzbould",
   "license": "MIT",
   "keywords": [
-    "app",
-    "web",
-    "component",
-    "ui",
-    "library",
-    "custom",
-    "elements"
+    "kv",
+    "store",
+    "kv-store",
+    "observe",
+    "observable",
+    "key",
+    "value"
   ],
   "engines": {
     "node": ">=12.6.0"
@@ -27,17 +27,17 @@
   "browserslist": "> 0.5% and last 2 chrome version, last 2 firefox version and not IE <= 11",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-decorators": "^7.7.0",
     "@babel/plugin-proposal-numeric-separator": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-env": "^7.7.1",
     "babel-eslint": "^10.0.3",
     "cross-env": "^6.0.3",
-    "eslint": "^6.5.1",
-    "eslint-plugin-jsdoc": "^15.12.0",
-    "rollup": "^1.25.1",
+    "eslint": "^6.6.0",
+    "eslint-plugin-jsdoc": "^18.1.4",
+    "rollup": "^1.27.4",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -48,5 +48,13 @@
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-terser": "^5.1.2",
     "serve": "^11.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/witzbould/observable-kv-store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/witzbould/observable-kv-store/issues"
+  },
+  "homepage": "https://github.com/witzbould/observable-kv-store#readme"
 }
