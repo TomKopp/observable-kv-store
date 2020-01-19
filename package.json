@@ -1,6 +1,6 @@
 {
   "name": "@witzbould/observable-kv-store",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Provides a base class that stores state data and notifies subscribers",
   "author": "witzbould",
   "license": "MIT",
