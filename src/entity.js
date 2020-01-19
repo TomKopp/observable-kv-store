@@ -13,7 +13,6 @@ export class Entity {
 	 * @param  {PropertyKey} key identifier, like a property key
 	 * @param  {*} oldValue value that was accociated with the key
 	 * @param  {*} value current value associated with the key
-	 * @returns {Entity} constructed Entity
 	 * @memberof Entity
 	 */
 	constructor(key, oldValue, value) {
