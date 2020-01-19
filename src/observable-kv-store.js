@@ -7,6 +7,9 @@ const observers = Symbol('observers');
 /**
  * kvStore class
  *
+ * @module observable-kv-store/kvStore
+ * @typedef {(string|number|symbol)} PropertyKey
+ * @exports
  * @class kvStore
  */
 const kvStore = Object.seal(class kvStore {
@@ -24,7 +27,7 @@ const kvStore = Object.seal(class kvStore {
 	/**
 	 * Get the stored value.
 	 *
-	 * @param {(string|number|symbol)} key identifier, like a property key
+	 * @param {PropertyKey} key identifier, like a property key
 	 * @returns {Promise} resolves with value for the associated key, or undefined
 	 * @memberof kvStore
 	 */
@@ -36,7 +39,7 @@ const kvStore = Object.seal(class kvStore {
 	 * Sets a value with a key in the store.
 	 * If value is undefined it is deleted.
 	 *
-	 * @param {(string|number|symbol)} key identifier, like a property key
+	 * @param {PropertyKey} key identifier, like a property key
 	 * @param {*} value new value associated with the key
 	 * @returns {Promise} resolves undefined if successful, rejects if error
 	 * @memberof kvStore
@@ -64,7 +67,7 @@ const kvStore = Object.seal(class kvStore {
 	/**
 	 * Deletes a value with a key in the store.
 	 *
-	 * @param {(string|number|symbol)} key identifier, like a property key
+	 * @param {PropertyKey} key identifier, like a property key
 	 * @returns {Promise} resolves undefined if successful, rejects if error
 	 * @memberof kvStore
 	 */
@@ -95,7 +98,7 @@ const kvStore = Object.seal(class kvStore {
 				resolve();
 			}
 			else {
-				reject(new Error('Callback should be of type \'function\'.'));
+				reject(new TypeError('Callback should be of type \'function\'.'));
 			}
 		});
 	}

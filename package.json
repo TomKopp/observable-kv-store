@@ -16,9 +16,9 @@
   "engines": {
     "node": ">=12.6.0"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.iife.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "type": "module",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c",
     "build:dev": "cross-env NODE_ENV=development rollup -c",

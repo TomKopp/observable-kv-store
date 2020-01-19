@@ -1,6 +1,8 @@
 /**
  * Internal mutation tracking class
  *
+ * @module observable-kv-store/Entity
+ * @typedef {import('./observable-kv-store.js').PropertyKey} PropertyKey
  * @class Entity
  */
 export class Entity {
@@ -8,8 +10,8 @@ export class Entity {
 	/**
 	 * Constructor
 	 *
-	 * @param  {(string|number|symbol)} key key identifier, like a property key
-	 * @param  {*} oldValue value that is accociated with the key
+	 * @param  {PropertyKey} key identifier, like a property key
+	 * @param  {*} oldValue value that was accociated with the key
 	 * @param  {*} value current value associated with the key
 	 * @returns {Entity} constructed Entity
 	 * @memberof Entity

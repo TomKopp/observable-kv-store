@@ -3,7 +3,6 @@ module.exports = {
 		"eslint:recommended",
 		"plugin:jsdoc/recommended"
 	],
-	"parser": "babel-eslint",
 	"parserOptions": {
 		"sourceType": "module",
 		"ecmaFeatures": {
